@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="/"><h1>Secure Django</h1></a>
+            </div>
+            <div class="navbar-right">
+                <ul>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

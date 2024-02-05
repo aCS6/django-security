@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar-left{
+    align-self: flex-start;
+}
+.navbar-right{
+    align-self: flex-end;
+}
+.navbar-left h1 {
+    margin: 0;
+    color: white;
+}
+
+
+.navbar-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-right li {
+    margin-right: 10px;
+}
+
+
+.navbar-right a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-right a:hover {
+    color:blanchedalmond;
+    font-weight: bold;
+}
+
+.main-container {
+    flex: 1;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+button.cta-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button.cta-button:hover {
+    background-color: #555;
+}
+
+.dashboard-image{
+    width: 100px;
+    height: 100px;
+}
+
+.cta-button a{
+    text-decoration: none;
+    color: white;
+}
