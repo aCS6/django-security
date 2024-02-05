@@ -1,5 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django_recaptcha.fields import ReCaptchaField
+
+# recaptcha
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -10,3 +13,5 @@ class CreateUserForm(UserCreationForm):
             'password1',
             'password2'
         ]
+    
+    captcha = ReCaptchaField()
