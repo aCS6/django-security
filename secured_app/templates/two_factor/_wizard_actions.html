@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<br>
+
+<!-- {% if cancel_url %}
+<a href="{{ cancel_url }}">{% trans "Cancel" %}</a>
+{% endif %}
+ -->
+
+
+{% if wizard.steps.prev %}
+
+
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "Back" %}</button>
+
+
+{% else %}
+
+<div style="margin-top: 10px;">
+<a href="{% url '' %}" style="text-decoration: None; color: white; background-color: purple; border-radius: 3px; margin-right: 20px; padding: 8px">Back</a>
+
+{% endif %}
+<button type="submit">{% trans "Proceed" %}</button>
+</div>

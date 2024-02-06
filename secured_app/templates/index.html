@@ -11,6 +11,9 @@
         As technology advances, so do the threats that compromise our online safety. At Secure Django, 
         we are dedicated to empowering you with the knowledge and tools necessary to safeguard your digital presence.
     </p>
-    <button class="cta-button"><a href="{% url 'register' %}"> Make an Account </a></button>
+    
+    {% if not user.is_authenticated %}
+        <button class="cta-button"><a href="{% url 'register' %}"> Make an Account </a></button>
+    {% endif %}
 </div>
 {% endblock %}

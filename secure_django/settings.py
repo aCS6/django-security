@@ -35,7 +35,15 @@ INSTALLED_APPS = [
     'secured_app',
     
     # third party
+    
+    # recaptcha
     'django_recaptcha',
+    
+    # 2FA
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
     
 ]
 
@@ -43,6 +51,9 @@ INSTALLED_APPS = [
 RECAPTCHA_PUBLIC_KEY = RECAPTCHA_SITE_KEY
 RECAPTCHA_PRIVATE_KEY = RECAPTCHA_SECRET_KEY
 
+# 2FA
+LOGIN_URL = 'two_factor:login'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +61,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware', # 2FA
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -110,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 

@@ -1,0 +1,14 @@
+{% load my_tag %}
+
+  {{ wizard.management_form }}
+
+  <br>
+
+  {% for attr in wizard.form %}
+
+    <label> {{ attr.label }} </label>
+
+    {{attr }}
+
+  {% endfor %}
+
