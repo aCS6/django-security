@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Index {% endblock %}
+{% block title %} Dashboard {{user|title}} {% endblock %}
 
 {% block content %}
-    <h1>Dashboard</h1>
+    <h1>Hello {{user|upper}} </h1>
+    <div>One</div>
+    <div>Two</div>
+    
 {% endblock %}
