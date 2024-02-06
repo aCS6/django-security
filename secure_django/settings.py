@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+from datetime import timedelta
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -64,6 +66,7 @@ MIDDLEWARE = [
     'django_otp.middleware.OTPMiddleware', # 2FA
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout', # auto logout
 ]
 
 ROOT_URLCONF = 'secure_django.urls'
@@ -79,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client', # auto logout
             ],
         },
     },
@@ -141,3 +145,12 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Auto logout
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(seconds=10), # 10 seconds of inactivity
+    'SESSION_TIME': timedelta(minutes=30),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}
