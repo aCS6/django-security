@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_totp',
     'two_factor',
     
+    # manage brute-force attack
+    'axes',
+    
+    
 ]
 
 # recaptcha
@@ -63,7 +67,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_auto_logout.middleware.auto_logout', # auto logout
+    'axes.middleware.AxesMiddleware', # axes
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 ROOT_URLCONF = 'secure_django.urls'
 
@@ -162,3 +176,10 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
+
+# axes configuration settings
+# python3 manage.py axes_reset ( for reset the configuration )
+AXES_FAILURE_LIMIT: 3 # how many times a user can fail a login
+AXES_COOLOFF_TIME: 2 # wait 2 hours before attempting to login again
+AXES_RESET_ON_SUCCESS = True # reset failed login attempt
+AXES_LOCKOUT_TEMPLATE = 'account_locked.html' # custom template for locked account

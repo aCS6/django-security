@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Dashboard {{user|title}} {% endblock %}
+
+{% block content %}
+    <h1>🔒</h1>
+    <h3>Ah! Account Locked!</h3>
+    <p>Your account has been temporarily locked for security reasons. Please contact our support team for assistance.</p>
+{% endblock %}
+{{ redirect_to_login_immediately }}
