@@ -37,3 +37,6 @@ def user_logout(request):
     messages.success(request , "Logout Success")
 
     return redirect("")
+
+def account_locked(request):
+    return render(request, 'account-locked.html')
