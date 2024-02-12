@@ -183,3 +183,35 @@ AXES_FAILURE_LIMIT: 3 # how many times a user can fail a login
 AXES_COOLOFF_TIME: 2 # wait 2 hours before attempting to login again
 AXES_RESET_ON_SUCCESS = True # reset failed login attempt
 AXES_LOCKOUT_TEMPLATE = 'account_locked.html' # custom template for locked account
+
+
+
+# Deployment settings 
+
+# Protection against XSS attacks
+'''
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+
+# CSRF Protection
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIES_SECURE = True
+
+
+# SSL redirect
+
+SECURE_SSL_REDIRECT = True
+
+
+# Enable HSTS
+
+SECURE_HSTS_SECONDS = 86400
+
+SECURE_HSTS_PRELOAD = True
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+'''
+
+# Look into a CSP (Content Security policy )
