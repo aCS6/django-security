@@ -4,60 +4,62 @@
 
 <html lang="en">
 
-    <head>
+<head>
 
-        <title> Secure Django | Login </title>
+  <title> Secure Django | Login </title>
 
-        <meta charset="utf-8" />
+  <meta charset="utf-8" />
 
-        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+  <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1" />
 
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-        
-    </head>
-
-    <style type="text/css">
-
-        body{
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-        .container{
-          border: 1px sold black;
-        }
-
-    </style>
-
-    <!-- Messages -->
-    {% for message in messages %}
-      <div id="message-timed" class="message {{ message.tags}} alert-success float-center text-center">
-        ⌛ {{ message }}
-      </div>
-    {% endfor %}
-
-  <br>
-
-  <body>
- 
-    {% block content_wrapper %}
-      
-      <div class="container">
-      
-          {% block content %} {% endblock %}
-
-        </div>
-
-      {% endblock %}
-
-    
-
-  </body>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/large_favicon.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/small_favicon.png' %}">
 
 
-  <script src="{% static 'js/app.js' %}"></script>
+</head>
+
+<style type="text/css">
+  body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .container {
+    border: 1px sold black;
+  }
+</style>
+
+<!-- Messages -->
+{% for message in messages %}
+<div id="message-timed" class="message {{ message.tags}} alert-success float-center text-center">
+  ⌛ {{ message }}
+</div>
+{% endfor %}
+
+<br>
+
+<body>
+
+  {% block content_wrapper %}
+
+  <div class="container">
+
+    {% block content %} {% endblock %}
+
+  </div>
+
+  {% endblock %}
+
+
+
+</body>
+
+
+<script src="{% static 'js/app.js' %}"></script>
 
 </html>
