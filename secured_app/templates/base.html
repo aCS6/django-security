@@ -6,6 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/large_favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/small_favicon.png' %}">
+
     <title>{% block title %} {% endblock %}</title>
 </head>
 
@@ -14,27 +19,29 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <a href="/"><h1>Secure Django</h1></a>
+                <a href="/">
+                    <h1>Secure Django</h1>
+                </a>
             </div>
             <div class="navbar-right">
                 <ul>
                     {% if not user.is_authenticated %}
-                        <li><a href="{% url 'register' %}">Register</a></li>
-                        <li><a href="{% url 'two_factor:login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'two_factor:login' %}">Login</a></li>
                     {% else %}
-                        <li><a href="{% url 'two_factor:profile' %}">Two Factor Auth</a></li>
-                        <a href="{% url 'user-logout' %}">Logout</a>
+                    <li><a href="{% url 'two_factor:profile' %}">Two Factor Auth</a></li>
+                    <a href="{% url 'user-logout' %}">Logout</a>
                     {% endif %}
                 </ul>
             </div>
         </nav>
     </header>
     {% if messages %}
-        {% for message in messages %}
-            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                <p id="message-timed" class="alert alert-success float-center text-center"> ℹ️ {{ message }}</p>
-            {% endif %}
-        {% endfor %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <p id="message-timed" class="alert alert-success float-center text-center"> ℹ️ {{ message }}</p>
+    {% endif %}
+    {% endfor %}
     {% endif %}
 
     <main class="main-container">
@@ -43,5 +50,6 @@
     </main>
 
 </body>
-    <script src="{% static 'js/app.js' %}"> </script>
+<script src="{% static 'js/app.js' %}"> </script>
+
 </html>
