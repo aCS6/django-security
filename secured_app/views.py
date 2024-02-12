@@ -4,6 +4,7 @@ from django.contrib.auth import logout
 from .forms import CreateUserForm
 from django.contrib.auth.decorators import login_required
 
+from django.contrib import messages
 
 
 def home(request):
@@ -33,5 +34,6 @@ def dashboard(request):
 
 def user_logout(request):
     logout(request)
+    messages.success(request , "Logout Success")
 
     return redirect("")

@@ -33,6 +33,11 @@
     </style>
 
     <!-- Messages -->
+    {% for message in messages %}
+      <div id="message-timed" class="message {{ message.tags}} alert-success float-center text-center">
+        ⌛ {{ message }}
+      </div>
+    {% endfor %}
 
   <br>
 

@@ -29,6 +29,13 @@
             </div>
         </nav>
     </header>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <p id="message-timed" class="alert alert-success float-center text-center"> ℹ️ {{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
     <main class="main-container">
         {% block content %}
@@ -36,5 +43,5 @@
     </main>
 
 </body>
-
+    <script src="{% static 'js/app.js' %}"> </script>
 </html>
